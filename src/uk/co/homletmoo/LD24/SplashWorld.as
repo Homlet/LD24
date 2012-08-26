@@ -56,7 +56,7 @@ package uk.co.homletmoo.LD24
 		
 		private function fadeIn():void
 		{
-			fader.tween(1, 0, 2, Ease.cubeOut);
+			fader.tween(1, 0, 1, Ease.cubeOut);
 			
 			if (fadeIterator == 1)
 			{
@@ -69,7 +69,7 @@ package uk.co.homletmoo.LD24
 		
 		private function fadeOut():void
 		{
-			fader.tween(0, 1, 3, Ease.cubeIn);
+			fader.tween(0, 1, 2, Ease.cubeIn);
 		}
 		
 		public function finish():void
