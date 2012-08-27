@@ -33,7 +33,7 @@ package uk.co.homletmoo.LD24
 		public static const COL_WHITE:int = 0xFFFFFF;
 		
 		// Range of background fade
-		public static const COL_PLR_FADE_RANGE:Number = 2.5;
+		public static var COL_PLR_FADE_RANGE:Number = 2.5;
 		
 		// Range of background fade
 		public static const COL_TARGET_FADE_RANGE:Number = 0.75;
@@ -60,7 +60,7 @@ package uk.co.homletmoo.LD24
 		// -------- PLAYER CONSTANTS ----------------------------------------------------------------|
 		
 		// Player speed
-		public static const PLR_SPEED:Number = 60;
+		public static const PLR_SPEED:Number = 25;
 	}
 
 }

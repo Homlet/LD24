@@ -30,6 +30,7 @@ package uk.co.homletmoo.LD24
 		 */		
 		public function start(intensity:Number=0.5, duration:Number=0.5):void
 		{
+			Assets.SND_LVLUP.play(0.5);
 			stop();
 			this.intensity = intensity * 0.05;
 			timer = duration;

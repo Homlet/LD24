@@ -1,5 +1,6 @@
 package uk.co.homletmoo.LD24 
 {
+	import net.flashpunk.Sfx;
 	
 	/**
 	 * ...
@@ -24,6 +25,23 @@ package uk.co.homletmoo.LD24
 		// Title art
 		[Embed (source = 'res/art.png')]
 		public static const ART_RAW:Class;
+		
+		// -------- SOUND SOURCE --------------------------------------------------------------------|
+		
+		// Ending sound
+		[Embed (source = 'snd/end.mp3')]
+		public static const SND_END_RAW:Class;
+		public static const SND_END:Sfx = new Sfx(SND_END_RAW);
+		
+		// Level-up sound
+		[Embed (source = 'snd/lvlup.mp3')]
+		public static const SND_LVLUP_RAW:Class;
+		public static const SND_LVLUP:Sfx = new Sfx(SND_LVLUP_RAW);
+		
+		// Slide sound
+		[Embed (source = 'snd/slide.mp3')]
+		public static const SND_SLIDE_RAW:Class;
+		public static const SND_SLIDE:Sfx = new Sfx(SND_SLIDE_RAW);
 		
 		// -------- LEVEL SOURCE --------------------------------------------------------------------|
 		

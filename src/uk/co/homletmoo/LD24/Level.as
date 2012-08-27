@@ -23,6 +23,7 @@ package uk.co.homletmoo.LD24
 		private var _currSize:int = Math.pow(2, _currLevel);
 		private var _ppos:Point;
 		private var _tpos:Point;
+		private var _end:Boolean = false;
 		private var _changed:Boolean = true;
 		
 		private var _moving:Point = new Point(0, 0);
@@ -49,26 +50,50 @@ package uk.co.homletmoo.LD24
 		override public function update():void
 		{
 			if (Input.pressed(Const.CTRL_UP)
-			 && _moving.equals(new Point(0, 0)))
+			 && _moving.equals(new Point(0, 0))
+			 && !_end)
+			{
+				Assets.SND_SLIDE.play();
 				_moving = new Point(0, -1);
+			}
 			
 			if (Input.pressed(Const.CTRL_RIGHT)
-			 && _moving.equals(new Point(0, 0)))
+			 && _moving.equals(new Point(0, 0))
+			 && !_end)
+			{
+				Assets.SND_SLIDE.play();
 				_moving = new Point(1, 0);
+			}
 			
 			if (Input.pressed(Const.CTRL_DOWN)
-			 && _moving.equals(new Point(0, 0)))
+			 && _moving.equals(new Point(0, 0))
+			 && !_end)
+			{
+				Assets.SND_SLIDE.play();
 				_moving = new Point(0, 1);
+			}
 			
 			if (Input.pressed(Const.CTRL_LEFT)
-			 && _moving.equals(new Point(0, 0)))
+			 && _moving.equals(new Point(0, 0))
+			 && !_end)
+			{
+				Assets.SND_SLIDE.play();
 				_moving = new Point( -1, 0);
+			}
 			
-			if (!_moving.equals(new Point(0, 0)))
+			if (!_moving.equals(new Point(0, 0))
+			 && !_end)
 				movePlayer();
 			
-			if (_ppos.equals(_tpos))
+			if (_ppos.equals(_tpos)
+			 && !_end)
 				next();
+			
+			if (_end)
+			{
+				Const.COL_PLR_FADE_RANGE += FP.elapsed * 2;
+				_changed = true;
+			}
 			
 			if (_changed)
 				rebuildLevel();
@@ -114,8 +139,14 @@ package uk.co.homletmoo.LD24
 				_moving = new Point(0, 0);
 				_moveRemainder = 0;
 				
+				Assets.SND_SLIDE.stop();
+				
 				findEntities();
 				_changed = true;
+			} else
+			{
+				_end = true;
+				Assets.SND_END.play();
 			}
 		}
 		
@@ -140,6 +171,8 @@ package uk.co.homletmoo.LD24
 						
 						_moving = new Point(0, 0);
 						_moveRemainder = 0;
+						
+						Assets.SND_SLIDE.stop();
 						break;
 					}
 			} else
@@ -159,6 +192,8 @@ package uk.co.homletmoo.LD24
 						
 						_moving = new Point(0, 0);
 						_moveRemainder = 0;
+						
+						Assets.SND_SLIDE.stop();
 						break;
 					}
 			}

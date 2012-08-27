@@ -15,14 +15,14 @@ package uk.co.homletmoo.LD24
 		
 		public function Main():void
 		{
-			super(Const.DIS_SIZE, Const.DIS_SIZE, 60, false);
+			super(Const.DIS_SIZE, Const.DIS_SIZE, 30, false);
 		}
 		
 		override public function init():void
 		{
 			q = new Quake();
 			
-			FP.world = new GameWorld();
+			FP.world = new SplashWorld();
 		}
 		
 		override public function update():void
